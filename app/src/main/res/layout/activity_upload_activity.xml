@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainback"
+    android:orientation="vertical"
+    android:weightSum="1.0">
+
+    <ImageView
+        android:id="@id/randomimage"
+        android:layout_width="match_parent"
+        android:layout_height="200.0dip"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@id/galleryimage"
+        android:layout_width="match_parent"
+        android:layout_height="200.0dip" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20.0dip"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@id/uploadimagebtn"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dip"
+            android:layout_gravity="center"
+            android:layout_marginLeft="46.0dip"
+            android:layout_marginRight="46.0dip"
+            android:background="#ff00bcd4"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Upload photo"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:id="@id/submitimagebtn"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dip"
+            android:layout_gravity="center"
+            android:layout_marginLeft="46.0dip"
+            android:layout_marginRight="46.0dip"
+            android:layout_marginTop="20.0dip"
+            android:background="#ff00bcd4"
+            android:fontFamily="@font/poppins_regular"
+            android:text="submit"
+            android:textColor="#ffffffff" />
+    </LinearLayout>
+</LinearLayout>
