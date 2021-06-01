@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerVertical="true"
@@ -12,130 +11,130 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="15.0dip"
+        android:layout_margin="15dp"
         android:gravity="bottom"
         android:orientation="vertical">
 
         <com.github.clans.fab.FloatingActionMenu
-            android:id="@id/fab_menu"
+            android:id="@+id/fab_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:menu_colorNormal="#ffff2f7a"
-            fab:menu_colorPressed="#ffff2f7a"
-            fab:menu_colorRipple="#ffff2f7a">
+            app:menu_colorNormal="#ff2f7a"
+            app:menu_colorPressed="#ff2f7a"
+            app:menu_colorRipple="#ff2f7a">
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@id/fab1"
+                android:id="@+id/fab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/texttospeech"
-                fab:fab_colorNormal="#ffff2f7a"
-                fab:fab_colorPressed="#ffff2f7a"
-                fab:fab_colorRipple="#ffff2f7a" />
+                app:fab_colorNormal="#ff2f7a"
+                app:fab_colorPressed="#ff2f7a"
+                app:fab_colorRipple="#ff2f7a" />
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@id/fab2"
+                android:id="@+id/fab2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_wapp"
-                fab:fab_colorNormal="#ffff2f7a"
-                fab:fab_colorPressed="#ffff2f7a"
-                fab:fab_colorRipple="#ffff2f7a" />
+                app:fab_colorNormal="#ff2f7a"
+                app:fab_colorPressed="#ff2f7a"
+                app:fab_colorRipple="#ff2f7a" />
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@id/fab3"
+                android:id="@+id/fab3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/sharebtn"
-                fab:fab_colorNormal="#ffff2f7a"
-                fab:fab_colorPressed="#ffff2f7a"
-                fab:fab_colorRipple="#ffff2f7a" />
+                app:fab_colorNormal="#ff2f7a"
+                app:fab_colorPressed="#ff2f7a"
+                app:fab_colorRipple="#ff2f7a" />
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@id/fab4"
+                android:id="@+id/fab4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_clipboard"
-                fab:fab_colorNormal="#ffff2f7a"
-                fab:fab_colorPressed="#ffff2f7a"
-                fab:fab_colorRipple="#ffff2f7a" />
+                app:fab_colorNormal="#ff2f7a"
+                app:fab_colorPressed="#ff2f7a"
+                app:fab_colorRipple="#ff2f7a" />
         </com.github.clans.fab.FloatingActionMenu>
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
         <TextView
-            android:id="@id/dailydate"
-            android:layout_width="fill_parent"
-            android:layout_height="40.0dip"
-            android:layout_marginTop="5.0dip"
+            android:id="@+id/dailydate"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/gradient"
             android:fontFamily="@font/poppins_light"
             android:gravity="center"
-            android:padding="5.0dip"
-            android:textColor="#ff1a297c"
-            android:textSize="20.0sp" />
+            android:padding="5dp"
+            android:textColor="#1a297c"
+            android:textSize="20sp" />
 
         <TextView
-            android:id="@id/dailyhoroscopeText"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_below="@id/dailydate"
-            android:layout_marginBottom="35.0dip"
-            android:layout_marginLeft="10.0dip"
-            android:layout_marginRight="10.0dip"
-            android:layout_marginTop="3.0dip"
+            android:id="@+id/dailyhoroscopeText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/dailydate"
+            android:layout_marginBottom="35dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="3dp"
             android:background="@android:color/transparent"
             android:fontFamily="@font/poppins_light"
             android:scrollbars="vertical"
-            android:textColor="#ffffffff"
-            android:textSize="20.0dip" />
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@id/rl_fshare"
-        android:layout_width="300.0dip"
-        android:layout_height="300.0dip"
+        android:id="@+id/rl_fshare"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:visibility="gone">
 
         <RelativeLayout
-            android:id="@id/rl_topdaily"
-            android:layout_width="fill_parent"
+            android:id="@+id/rl_topdaily"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@id/img_signdaily"
-                android:layout_width="80.0dip"
-                android:layout_height="80.0dip"
-                android:padding="10.0dip"
+                android:id="@+id/img_signdaily"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:padding="10dp"
                 android:src="@drawable/aries" />
 
             <TextView
-                android:id="@id/cardsigndaily"
+                android:id="@+id/cardsigndaily"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="20.0dip"
-                android:layout_toRightOf="@id/img_signdaily"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/img_signdaily"
                 android:text="Aries"
-                android:textColor="#ff000000"
-                android:textSize="30.0sp"
+                android:textColor="#000"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
         <TextView
-            android:id="@id/tv_contentdaily"
-            android:layout_width="250.0dip"
-            android:layout_height="250.0dip"
-            android:layout_below="@id/rl_topdaily"
-            android:layout_margin="10.0dip"
+            android:id="@+id/tv_contentdaily"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_below="@+id/rl_topdaily"
+            android:layout_margin="10dp"
             android:inputType="textMultiLine"
             android:lines="10"
             android:maxLines="10"
-            android:textColor="#ff000000"
-            android:textSize="16.0sp" />
+            android:textColor="#000"
+            android:textSize="16sp" />
     </RelativeLayout>
 </RelativeLayout>

@@ -7,18 +7,18 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@id/yourname"
+        android:id="@+id/yourname"
         android:layout_width="match_parent"
-        android:layout_height="45.0dip"
-        android:layout_marginLeft="46.0dip"
-        android:layout_marginRight="46.0dip"
+        android:layout_height="45dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="46dp"
         android:background="@drawable/round_button"
         android:fontFamily="@font/poppins_light"
         android:hint="Enter your name"
         android:inputType="text"
-        android:paddingLeft="20.0dip"
-        android:textColor="#ff000000"
-        android:textSize="18.0sp" />
+        android:paddingLeft="20dp"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,11 +26,11 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@id/img_rotate"
-            android:layout_width="150.0dip"
-            android:layout_height="150.0dip"
+            android:id="@+id/img_rotate"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:padding="15.0dip"
+            android:padding="15dp"
             android:src="@drawable/horo12" />
 
         <TextView
@@ -40,50 +40,50 @@
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="Horoscope"
-            android:textColor="#ffffffff"
-            android:textSize="30.0sp"
+            android:textColor="#fff"
+            android:textSize="30sp"
             android:visibility="gone" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18.0dip"
+        android:layout_marginTop="18dp"
         android:orientation="horizontal">
 
         <Button
-            android:id="@id/getstart"
+            android:id="@+id/getstart"
             android:layout_width="match_parent"
-            android:layout_height="40.0dip"
-            android:layout_marginLeft="20.0dip"
-            android:layout_marginRight="46.0dip"
-            android:background="#ff1a297c"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="46dp"
+            android:background="#1a297c"
             android:fontFamily="@font/poppins_regular"
             android:text="Go"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffff" />
 
         <ImageView
-            android:id="@id/selectbdayimage"
-            android:layout_width="40.0dip"
-            android:layout_height="40.0dip"
-            android:layout_marginLeft="46.0dip"
+            android:id="@+id/selectbdayimage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="46dp"
             android:src="@drawable/ic_cal" />
     </LinearLayout>
 
     <TextView
-        android:id="@id/yourbdate"
+        android:id="@+id/yourbdate"
         android:layout_width="match_parent"
-        android:layout_height="45.0dip"
-        android:layout_marginLeft="46.0dip"
-        android:layout_marginRight="46.0dip"
-        android:layout_marginTop="15.0dip"
+        android:layout_height="45dp"
+        android:layout_marginLeft="46dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/round_button"
         android:fontFamily="@font/poppins_light"
         android:hint="Your Birthday"
-        android:paddingLeft="20.0dip"
-        android:paddingTop="8.0dip"
-        android:textColor="#ff000000"
-        android:textSize="18.0sp" />
+        android:paddingLeft="20dp"
+        android:paddingTop="8dp"
+        android:textColor="#000"
+        android:textSize="18sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -93,6 +93,6 @@
         android:fontFamily="@font/poppins_regular"
         android:gravity="center"
         android:text="Horoscope"
-        android:textColor="#fff0f1f7"
-        android:textSize="26.0sp" />
+        android:textColor="#f0f1f7"
+        android:textSize="26sp" />
 </LinearLayout>
