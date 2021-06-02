@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="stateHidden"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Zodiac">
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
 
         <activity android:name=".view.SplashActivity">
             <intent-filter>

@@ -28,8 +28,6 @@ public class GetHoroscope {
         progressDialog.setTitle("please wait");
         progressDialog.setMessage("please wait");
         progressDialog.show();
-        Log.d("abcd","URL = " + url.toString());
-        Log.d("abcd","horoscope = " + horoscope);
 
         if (url == "today/") {
             Api api = Retroclient.getapiservice();
@@ -40,10 +38,6 @@ public class GetHoroscope {
                     if (response.isSuccessful()) {
                         GetHoroscope.date = response.body().getDate();
                         GetHoroscope.horoscopetext = response.body().getHoroscope();
-
-                        Log.d("abcd","date = " + date);
-                        Log.d("abcd","horoscopetext = " + horoscopetext);
-
                         GetHoroscope.setdailydata(date, horoscopetext);
                         DailyFragment.setdata1(GetHoroscope.horoscopetext);
                         progressDialog.dismiss();
@@ -67,10 +61,6 @@ public class GetHoroscope {
                     if (response.isSuccessful()) {
                         GetHoroscope.week = response.body().getWeek();
                         GetHoroscope.horoscopetext = response.body().getHoroscope();
-
-                        Log.d("abcd","week = " + date);
-                        Log.d("abcd","horoscopetext = " + horoscopetext);
-
                         GetHoroscope.setweekdata(GetHoroscope.week, GetHoroscope.horoscopetext);
                         DailyFragment.setdata1(GetHoroscope.horoscopetext);
                         progressDialog.dismiss();
@@ -94,10 +84,6 @@ public class GetHoroscope {
                     if (response.isSuccessful()) {
                         GetHoroscope.month = response.body().getMonth();
                         GetHoroscope.horoscopetext = response.body().getHoroscope();
-
-                        Log.d("abcd","month = " + month);
-                        Log.d("abcd","horoscopetext = " + horoscopetext);
-
                         GetHoroscope.setmonthdata(GetHoroscope.month, GetHoroscope.horoscopetext);
                         DailyFragment.setdata1(GetHoroscope.horoscopetext);
                         progressDialog.dismiss();
@@ -121,10 +107,6 @@ public class GetHoroscope {
                     if (response.isSuccessful()) {
                         GetHoroscope.year = response.body().getYear();
                         GetHoroscope.horoscopetext = response.body().getHoroscope();
-
-                        Log.d("abcd","year = " + year);
-                        Log.d("abcd","horoscopetext = " + horoscopetext);
-
                         GetHoroscope.setyearlydata(GetHoroscope.year, GetHoroscope.horoscopetext);
                         DailyFragment.setdata1(GetHoroscope.horoscopetext);
                         progressDialog.dismiss();

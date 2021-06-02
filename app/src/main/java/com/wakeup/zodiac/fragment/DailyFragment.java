@@ -63,7 +63,7 @@ public class DailyFragment extends BaseFragment {
         data1 = horoscopetext;
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.rootview = inflater.inflate(R.layout.fragment_daily, container, false);
         this.context = getActivity();
@@ -73,7 +73,7 @@ public class DailyFragment extends BaseFragment {
         initwp();
         initshare();
         initcopy();
-        return this.rootview;
+        return rootview;
     }
 
     private void initfab() {
@@ -90,8 +90,6 @@ public class DailyFragment extends BaseFragment {
         });
     }
 
-    /* access modifiers changed from: private */
-    /* access modifiers changed from: public */
     private void showToast(String msg) {
         Toast.makeText(this.context, msg, Toast.LENGTH_SHORT).show();
     }
@@ -169,8 +167,6 @@ public class DailyFragment extends BaseFragment {
         });
     }
 
-    /* access modifiers changed from: private */
-    /* access modifiers changed from: public */
     private void saveimage() {
         this.relativeLayout = (RelativeLayout) this.rootview.findViewById(R.id.rl_fshare);
         this.bitmap = getBitmapFromView(this.relativeLayout);
@@ -234,17 +230,17 @@ public class DailyFragment extends BaseFragment {
         return returnedBitmap;
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override
     public void onResume() {
         super.onResume();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override
     public void onPause() {
         super.onPause();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override
     public void onDestroy() {
         TextToSpeech textToSpeech = this.tts;
         if (textToSpeech != null) {
@@ -254,7 +250,7 @@ public class DailyFragment extends BaseFragment {
         super.onDestroy();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override
     public void onStart() {
         super.onStart();
     }
