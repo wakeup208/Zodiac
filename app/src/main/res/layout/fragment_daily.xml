@@ -6,12 +6,44 @@
     android:layout_centerVertical="true"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/dailydate"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/gradient"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#1a297c"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/dailyhoroscopeText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/dailydate"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="35dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/poppins_light"
+            android:scrollbars="vertical"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:padding="15dp"
+        android:layout_alignParentBottom="true"
         android:layout_margin="15dp"
         android:gravity="bottom"
         android:orientation="vertical">
@@ -61,40 +93,6 @@
                 app:fab_colorRipple="#ff2f7a" />
         </com.github.clans.fab.FloatingActionMenu>
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent">
-
-        <TextView
-            android:id="@+id/dailydate"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/gradient"
-            android:fontFamily="@font/poppins_light"
-            android:text="3-6-2021"
-            android:gravity="center"
-            android:padding="5dp"
-            android:textColor="#1a297c"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/dailyhoroscopeText"
-            android:layout_width="401dp"
-            android:layout_height="593dp"
-            android:layout_below="@+id/dailydate"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="35dp"
-            android:background="@android:color/transparent"
-            android:fontFamily="@font/poppins_light"
-            android:scrollbars="vertical"
-            android:text="Cong hoa xa hoi chu nghia Viet Nam"
-            android:textSize="20dp" />
-    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_fshare"
