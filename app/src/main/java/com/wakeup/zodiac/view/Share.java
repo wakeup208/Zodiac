@@ -1,21 +1,28 @@
 package com.wakeup.zodiac.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -64,7 +71,7 @@ public class Share extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.share_activity);
         Window window = getWindow();
-        window.clearFlags(67108864);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(Integer.MIN_VALUE);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar));
         init();
@@ -157,17 +164,81 @@ public class Share extends AppCompatActivity {
         });
     }
 
+
+    public Bitmap scaleBitmap(Bitmap image) {
+//        int ScaleSize = 250;//max Height or width to Scale
+//        int width = mBitmap.getWidth();
+//        int height = mBitmap.getHeight();
+//        float excessSizeRatio = width > height ? width / ScaleSize : height / ScaleSize;
+//        Bitmap bitmap = Bitmap.createBitmap(
+//                mBitmap, 0, 0,(int) (width/excessSizeRatio),(int) (height/excessSizeRatio));
+//        //mBitmap.recycle(); if you are not using mBitmap Obj
+//        return bitmap;
+
+        int maxSize = 550;
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float) width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, false);
+    }
+
     private void init() {
         showrandomimage = (ImageView) findViewById(R.id.showrandomimage);
         showuploadimage = (ImageView) findViewById(R.id.showuploadimage);
         this.mergeimage = (ImageView) findViewById(R.id.mergeimage);
         this.share = (FloatingActionButton) findViewById(R.id.shareit);
-        showrandomimage.setImageResource(getRandArrayElement());
+        showrandomimage.setBackgroundResource(getRandArrayElement());
+        showrandomimage.setScaleType(ImageView.ScaleType.FIT_START);
+        showrandomimage.setAdjustViewBounds(true);
         showuploadimage.setImageBitmap(Upload_image.bitmap);
-        this.bitmap = ((BitmapDrawable) showrandomimage.getDrawable()).getBitmap();
+
+//        DisplayMetrics metrics = new DisplayMetrics();
+//        int height = metrics.heightPixels;
+//        int width = metrics.widthPixels;
+//        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+//        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+//        layoutParams.width = width;
+//        layoutParams.height = height;
+//        showrandomimage.setLayoutParams(layoutParams);
+
+        Bitmap bMap = BitmapFactory.decodeResource(getResources(), getRandArrayElement());
+        Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, 750, 550, true);
+        showrandomimage.setImageBitmap(bMapScaled);
+
+        this.bitmap = ((BitmapDrawable) showrandomimage.getBackground()).getBitmap();
         this.bitmap1 = ((BitmapDrawable) showuploadimage.getDrawable()).getBitmap();
-        this.mergedImages = createSingleImageFromMultipleImages(Bitmap.createScaledBitmap(this.bitmap, 700, 550, true), Bitmap.createScaledBitmap(this.bitmap1, 700, 550, true));
+
+        Bitmap bitmapRandom = scaleBitmap(bitmap);
+
+        this.mergedImages = createSingleImageFromMultipleImages(bMapScaled, Bitmap.createScaledBitmap(this.bitmap1, 750 , 550, true));
+        //this.mergedImages = createSingleImageFromMultipleImages(bitmap, bitmap1);
+
         this.mergeimage.setImageBitmap(this.mergedImages);
+    }
+
+    public float getScreenWidth() {
+        Display display = this.getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+        float pxWidth = outMetrics.widthPixels;
+        return pxWidth;
+    }
+
+    public  float getScreenHeight(Bitmap bitmap) {
+        float screenWidth=getScreenWidth();
+        float newHeight = screenWidth;
+        if (bitmap.getWidth() != 0 && bitmap.getHeight() != 0) {
+            newHeight = (screenWidth * bitmap.getHeight()) / bitmap.getWidth();
+        }
+        return newHeight;
     }
 
     private Bitmap createSingleImageFromMultipleImages(Bitmap firstImage, Bitmap secondImage) {
@@ -181,5 +252,69 @@ public class Share extends AppCompatActivity {
     public int getRandArrayElement() {
         int[] iArr = this.MyimageArray;
         return iArr[this.rand.nextInt(iArr.length)];
+    }
+
+    class BitmapUtilsTask extends AsyncTask<Object, Void, Bitmap> {
+        ImageView linearLayout;
+        Context context;
+
+        public BitmapUtilsTask(Context context, ImageView linearLayout) {
+            this.context = context;
+            this.linearLayout = linearLayout;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(context.getResources(), bitmap);
+            linearLayout.setBackground(bitmapDrawable);
+        }
+
+        public Bitmap getBitmap() {
+
+            int desiredWidth = 1000;
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+
+            Random random = new Random();
+            int pos = random.nextInt(15);
+
+            BitmapFactory.decodeResource(context.getResources(), getRandArrayElement() , options);
+
+            int srcWidth = options.outWidth;
+            int srcHeight = options.outHeight;
+
+            if (desiredWidth > srcWidth)
+                desiredWidth = srcWidth;
+
+            int inSampleSize = 1;
+            while (srcWidth / 2 > desiredWidth) {
+                srcWidth /= 2;
+                srcHeight /= 2;
+                inSampleSize *= 2;
+            }
+
+            options.inJustDecodeBounds = false;
+            options.inDither = false;
+            options.inSampleSize = inSampleSize;
+            options.inScaled = false;
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            options.inPurgeable = true;
+            Bitmap sampledSrcBitmap;
+
+            sampledSrcBitmap =  BitmapFactory.decodeResource(context.getResources(), getRandArrayElement() , options);
+
+            return sampledSrcBitmap;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Object... item) {
+            return getBitmap();
+        }
     }
 }

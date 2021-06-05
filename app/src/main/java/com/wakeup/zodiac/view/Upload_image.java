@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -26,13 +27,12 @@ public class Upload_image extends AppCompatActivity {
     ImageView uploadimageView;
     Button uploadimagebtn;
 
-    /* access modifiers changed from: protected */
-    @Override // android.support.v7.app.AppCompatActivity, android.support.v4.app.SupportActivity, android.support.v4.app.FragmentActivity
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_activity);
         Window window = getWindow();
-        window.clearFlags(67108864);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(Integer.MIN_VALUE);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar));
         init();

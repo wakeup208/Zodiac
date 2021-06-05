@@ -77,7 +77,7 @@ public class InfoScreenActivity extends AppCompatActivity implements DatePickerD
         AgeCalculator ageCalculator = new AgeCalculator();
         ageCalculator.getCurrentDay();
         ageCalculator.getUserInputs(year, month, day);
-        zodiacsign = ageCalculator.getZodiacSign(month + 1, day);
+        zodiacsign = ageCalculator.getZodiacSign(month , day);
     }
 
     private void shredpref() {
@@ -98,21 +98,19 @@ public class InfoScreenActivity extends AppCompatActivity implements DatePickerD
     }
 
     private void selectbirth() {
-        this.yourbithdate.setOnClickListener(new View.OnClickListener() {
+        this.selectbirthdate.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                InfoScreenActivity.this.birthdayinstance = Calendar.getInstance();
-                InfoScreenActivity infoScreenActivity = InfoScreenActivity.this;
-                infoScreenActivity.birthyear = infoScreenActivity.birthdayinstance.get(1);
-                InfoScreenActivity infoScreenActivity2 = InfoScreenActivity.this;
-                infoScreenActivity2.birthmonth = infoScreenActivity2.birthdayinstance.get(2);
-                InfoScreenActivity infoScreenActivity3 = InfoScreenActivity.this;
-                infoScreenActivity3.birthdate = infoScreenActivity3.birthdayinstance.get(5);
+                birthdayinstance = Calendar.getInstance();
+                birthyear = birthdayinstance.get(Calendar.YEAR);
+                birthmonth = birthdayinstance.get(Calendar.MONTH);
+                birthdate = birthdayinstance.get(Calendar.DAY_OF_MONTH);
                 new DatePickerDialog(InfoScreenActivity.this, new DatePickerDialog.OnDateSetListener() {
 
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month + 1;
                         TextView textView = InfoScreenActivity.this.yourbithdate;
-                        textView.setText("" + year + "-" + month + "-" + dayOfMonth);
+                        textView.setText("" + year + "-" + month  + "-" + dayOfMonth);
                         InfoScreenActivity.this.showAgeAndZodiac(year, month, dayOfMonth);
                     }
                 }, InfoScreenActivity.this.birthyear, InfoScreenActivity.this.birthmonth, InfoScreenActivity.this.birthdate).show();

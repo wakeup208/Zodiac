@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -58,7 +59,7 @@ public class NameMeaningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_name_meaning);
         Window window = getWindow();
-        window.clearFlags(67108864);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(Integer.MIN_VALUE);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar));
         init();

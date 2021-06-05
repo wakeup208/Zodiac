@@ -2,6 +2,7 @@ package com.wakeup.zodiac.view;
 
 import android.os.Bundle;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class Getsign_detail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getsign_detail);
         Window window = getWindow();
-        window.clearFlags(67108864);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(Integer.MIN_VALUE);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar));
         init();

@@ -4,7 +4,7 @@
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/mainback"
+    android:background="@drawable/bg"
     android:orientation="vertical">
 
     <Button
@@ -19,10 +19,10 @@
         android:id="@+id/rotateimage"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="-40dp"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="-40dp"
+        android:layout_marginRight="-40dp"
         android:src="@drawable/rotateimage" />
 
     <LinearLayout
@@ -30,23 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="158dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
         android:layout_marginTop="75dp"
+        android:layout_marginRight="25dp"
         android:background="@android:color/transparent"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/findnamemeaning"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="3dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/finalg"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Check Name Meaning"
-            android:textColor="@android:color/white"
-            android:textSize="13dp" />
 
         <TextView
             android:id="@+id/helloyourname"
@@ -58,6 +45,19 @@
             android:text="Hello"
             android:textColor="#fff"
             android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/findnamemeaning"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/finalg"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Check Name Meaning"
+            android:textColor="@android:color/white"
+            android:textSize="13dp" />
 
         <TextView
             android:id="@+id/subtitle"
@@ -77,18 +77,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toplayoutview"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical">
 
         <GridView
             android:id="@+id/gridview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
             android:layout_marginTop="0dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/transparent"
             android:gravity="center"
             android:horizontalSpacing="12dp"

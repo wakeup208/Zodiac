@@ -5,6 +5,7 @@ import android.speech.tts.TextToSpeech;
 
 import android.util.Log;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,7 +36,7 @@ public class DetailActivity extends AppCompatActivity implements TextToSpeech.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         Window window = getWindow();
-        window.clearFlags(67108864);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(Integer.MIN_VALUE);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar));
         initView();
@@ -88,7 +89,7 @@ public class DetailActivity extends AppCompatActivity implements TextToSpeech.On
         pageradapter.addFragment(new MonthlyFragment(), "monthly");
         pageradapter.addFragment(new YearlyFragment(), "yearly");
         this.horoscrope_Viewpager.setAdapter(pageradapter);
-        this.horoscrope_Viewpager.setOffscreenPageLimit(3);
+        this.horoscrope_Viewpager.setOffscreenPageLimit(5);
     }
 
     public void onInit(int status) {
